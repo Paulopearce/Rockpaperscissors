@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  let choice
+  let wins = 0
+  let losses = 0
+  let ties = 0
+  let rps = ['r', 'p', 's']
+  for (i = 0; i < 10; i++) {
+    let random = Math.ceil(Math.random() * 3)-1
+    console.log(`random: ${random}`)
+    let computer = rps[random]
+    choice = prompt('type r, p, or s to select rock paper or scissors')
+    console.log(`choice: ${choice}`)
+    while (!rps.includes(choice)) {
+      choice = prompt('type r, p, or s to select rock paper or scissors')
+      console.log(choice)
+    }
+    if (computer == 'r' && choice == 'r') {
+      alert('Computer chose ' + computer + '.You tied this round')
+      ties++
+    }
+    if (computer == 'r' && choice == 'p') {
+      alert('Computer chose ' + computer + '.You won this round')
+      wins++
+    }
+    if (computer == 'r' && choice == 's') {
+      alert('Computer chose ' + computer + '.You lost this round')
+      losses++
+    }
+    if (computer == 'p' && choice == 'r') {
+      alert('Computer chose ' + computer + '.You lost this round')
+      losses++
+    }
+    if (computer == 'p' && choice == 'p') {
+      alert('Computer chose ' + computer + '.You tied this round')
+      ties++
+    }
+    if (computer == 'p' && choice == 's') {
+      alert('Computer chose ' + computer + '.You won this round')
+      losses++
+    }
+    if (computer == 's' && choice == 'r') {
+      alert('Computer chose ' + computer + '.You won this round')
+      wins++
+    }
+    if (computer == 's' && choice == 'p') {
+      alert('Computer chose ' + computer + '.You lost this round')
+      losses++
+    }
+    if (computer == 's' && choice == 's') {
+      alert('Computer chose ' + computer + '.You tied this round')
+      ties++
+    }
+    console.log(`computer: ${computer}`)
+  }
+  alert('Total wins: ' + wins + '\n Total losses: ' + losses + '\n Total ties: ' + ties);
+  </script>
+</body>
+</html>
